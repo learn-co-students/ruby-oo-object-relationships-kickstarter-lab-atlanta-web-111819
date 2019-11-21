@@ -11,6 +11,7 @@ class Project
     end
 
     def backers
-        ProjectBacker.all.select{|inst| inst.project == self}.map{|inst| inst.backer}
+        ProjectBacker.all.map{|pb| pb.backer == self ? pb.backer : nil}
+        # ProjectBacker.all.select{|inst| inst.project == self}.map{|inst| inst.backer}
     end
 end
